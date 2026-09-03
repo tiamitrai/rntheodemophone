@@ -1,45 +1,33 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import React from 'react';
+import {View} from 'react-native';
+import {PlayerConfiguration, SourceDescription, PlayerEventType, THEOplayer, THEOplayerView} from 'react-native-theoplayer';
+import {LICENSE} from '@env';
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+const playerConfig: PlayerConfiguration = {
+  license: LICENSE,
+};
 
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+const source: SourceDescription = {
+  sources: [
+    {
+      src: "https://cdn.theoplayer.com/video/elephants-dream/playlist-single-audio.m3u8",
+      type: "application/x-mpegurl"
+    },
+  ],
+};
 
-  return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
-    </SafeAreaProvider>
-  );
+const onReady = (player: THEOplayer) => {
+  player.autoplay = true
+  player.source = source;
+  player.addEventListener(PlayerEventType.ERROR, console.log);
 }
 
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
-
+const App = () => {
   return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
+    <View style={{position: 'absolute', top: 0, left: 0, bottom: 0, right: 0}}>
+      <THEOplayerView config={playerConfig} onPlayerReady={onReady}/>
     </View>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
+};
 
 export default App;
