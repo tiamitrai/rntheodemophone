@@ -1,5 +1,7 @@
 # RN THEOplayer Demo Phone
 
+https://github.com/tiamitrai/rntheodemophone/raw/main/demo.mov
+
 A React Native demo app integrating [THEOplayer](https://www.theoplayer.com/) for HLS video playback, built with [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 ## Stack
