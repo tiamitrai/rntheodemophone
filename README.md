@@ -4,6 +4,12 @@ https://github.com/tiamitrai/rntheodemophone/raw/main/demo.mp4
 
 A React Native demo app integrating [THEOplayer](https://www.theoplayer.com/) for HLS video playback, built with [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
+<img width="304" height="626" alt="video" src="https://github.com/user-attachments/assets/7517f0d0-c63b-458e-b449-420ff87e5980" />
+
+
+
+
+
 ## Stack
 
 - **React Native** 0.87.1
